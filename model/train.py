@@ -19,8 +19,8 @@ def configure():
     flags.DEFINE_integer('summary_interval', 100, '# of step to save summary')
     flags.DEFINE_float('learning_rate', 1e-3, 'learning rate')
     # data
-    flags.DEFINE_string('raw_data_dir', '../Data/Train', 'Name of raw data file(s)')
-    flags.DEFINE_string('data_dir', '../h5_train/', 'Name of data file(s)')
+    flags.DEFINE_string('raw_data_dir', 'Data/Train', 'Name of raw data file(s)')
+    flags.DEFINE_string('data_dir', 'h5_train/', 'Name of data file(s)')
     flags.DEFINE_boolean('aug_flip', True, 'Training data augmentation: flip. Extra 3 datasets.')
     flags.DEFINE_boolean('aug_rotate', True, 'Training data augmentation: rotate. Extra 9 datasets.')
     flags.DEFINE_integer('validation_id', 10, '1-10, which subject is used for validation')
@@ -33,7 +33,7 @@ def configure():
     flags.DEFINE_integer('height', 32, 'height size') # should be equal to patch_size
     flags.DEFINE_integer('width', 32, 'width size') # should be equal to patch_size
     # Debug
-    flags.DEFINE_string('logdir', './logdir', 'Log dir')
+    flags.DEFINE_string('logdir', './logdir','Log dir')
     flags.DEFINE_string('modeldir', './modeldir', 'Model dir')
     flags.DEFINE_string('savedir', './result', 'Result saving directory')
     flags.DEFINE_string('model_name', 'model', 'Model file name')
@@ -74,5 +74,5 @@ def main(_):
 
 if __name__ == '__main__':
     # configure which gpu or cpu to use
-    os.environ['CUDA_VISIBLE_DEVICES'] = '6'
+    os.environ['CUDA_VISIBLE_DEVICES'] = '0'
     tf.app.run()

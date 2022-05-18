@@ -14,8 +14,8 @@ This file provides configuration to build U-NET for semantic segmentation.
 def configure():
     flags = tf.app.flags
     # data
-    flags.DEFINE_string('raw_data_dir', '../Data/Test', 'Name of raw data file(s)')
-    flags.DEFINE_string('data_dir', '../h5_test/', 'Name of data file(s)')
+    flags.DEFINE_string('raw_data_dir', 'Data/Test', 'Name of raw data file(s)')
+    flags.DEFINE_string('data_dir', 'h5_test/', 'Name of data file(s)')
     flags.DEFINE_float('learning_rate', 1e-3, 'learning rate')
     flags.DEFINE_boolean('aug_flip', True, 'Training data augmentation: flip. Extra 3 datasets.')
     flags.DEFINE_boolean('aug_rotate', True, 'Training data augmentation: rotate. Extra 9 datasets.')
@@ -70,5 +70,5 @@ def main(_):
 
 if __name__ == '__main__':
     # configure which gpu or cpu to use
-    os.environ['CUDA_VISIBLE_DEVICES'] = '6'
+    os.environ['CUDA_VISIBLE_DEVICES'] = '0'
     tf.app.run()
